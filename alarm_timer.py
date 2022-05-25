@@ -12,7 +12,7 @@ print('        ╚═╝░░╚═╝╚══════╝╚═╝░░
 
 print('               ██████╗░░█████╗░██████╗░░██████╗███████╗██████╗░██████╗░░█████╗░░█████╗░░░███╗░░')
 print('               ██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝██╔══██╗╚════██╗██╔══██╗██╔══██╗░████║░░')
-print('               ██████╔╝███████║██║░░██║╚█████╗░█████╗░░██████╔╝░░███╔═╝██║░░██║██║░░██║██╔██║░░')
+print('             < ██████╔╝███████║██║░░██║╚█████╗░█████╗░░██████╔╝░░███╔═╝██║░░██║██║░░██║██╔██║░░ >')
 print('               ██╔══██╗██╔══██║██║░░██║░╚═══██╗██╔══╝░░██╔══██╗██╔══╝░░██║░░██║██║░░██║╚═╝██║░░')
 print('               ██║░░██║██║░░██║██████╔╝██████╔╝███████╗██║░░██║███████╗╚█████╔╝╚█████╔╝███████╗')
 print('               ╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═════╝░╚══════╝╚═╝░░╚═╝╚══════╝░╚════╝░░╚════╝░╚══════╝')
@@ -26,32 +26,72 @@ def openlink():
     
 
 def countdowm(hours, minutes, seconds):
+    
+    if(mode == 'op'):
+        start = "yes"
+        while start == "yes"  or sessions == 0:
+             total_seconds = hours * 3600 + minutes * 60 + seconds
 
-    total_seconds = hours * 3600 + minutes * 60 + seconds
+             while total_seconds >= 0:
+            
+                timer = datetime.timedelta(seconds=total_seconds)
+                time.sleep(1)
+                total_seconds -= 1
+                print("\t",timer, end="\r")
+                
+             toaster = ToastNotifier()
 
-    while total_seconds >= 0:
-        
-        timer = datetime.timedelta(seconds=total_seconds)
+             toaster.show_toast("RADSER OP","\nBreak!!!")
+             total_seconds =  300
+             
+             while total_seconds >= 0:
+            
+                timer = datetime.timedelta(seconds=total_seconds)
+                time.sleep(1)
+                total_seconds -= 1
+                print("\t",timer, end="\r")
+                
+             toaster.show_toast("RADSER OP","\nBreak over!!!")
+             sessions -= 1
+             start = input("Start new session (yes/no):").lower()
+             
+        toaster = ToastNotifier()
 
-        if mode == 'timer':
-            print("\t",timer, end="\r")
+        toaster.show_toast("RADSER OP","\nSessions are OVER!!!")
 
-        elif mode == "alarm":
-            if  choice == 'y': 
+        print("Have a nice day!!! (っ◔◡◔)っ ❤\n")
+        go_to = input("Enter go to visit my Github :").lower()
+        if go_to == 'go':
+            openlink
+
+             
+
+    else:
+        total_seconds = hours * 3600 + minutes * 60 + seconds
+
+        while total_seconds >= 0:
+            
+            timer = datetime.timedelta(seconds=total_seconds)
+
+            if mode == 'timer':
                 print("\t",timer, end="\r")
 
-        time.sleep(1)
+            elif mode == "alarm":
+                if  choice == 'y': 
+                    print("\t",timer, end="\r")
 
-        total_seconds -= 1
-        
-    toaster = ToastNotifier()
+            time.sleep(1)
 
-    toaster.show_toast("RADSER alarm","\nTIME IS OVER!!!")
+            total_seconds -= 1
+            
+        toaster = ToastNotifier()
 
-    print("Have a nice day!!! (っ◔◡◔)っ ❤\n")
-    go_to = input("Enter go to visit my Github :").lower()
-    if go_to == 'go':
-        openlink
+        toaster.show_toast("RADSER alarm","\nTIME IS OVER!!!")
+
+        print("Have a nice day!!! (っ◔◡◔)っ ❤\n")
+        go_to = input("Enter go to visit my Github :").lower()
+        if go_to == 'go':
+            openlink
 
 
 print('█▀▄▀█ █▀█ █▀▄ █▀▀   ▄█   ▀   ▄▀█ █░░ ▄▀█ █▀█ █▀▄▀█')
@@ -108,6 +148,7 @@ if mode == "alarm":
     choice = input("\n\nDo you want the countdown (y/n) ? ")
     
 if mode == "op":
+    sessions = input("Enter number of sessions :")
     choice = input("\n\nDo you want the countdown (y/n) ? ")
 
 print("\n")
