@@ -1,12 +1,29 @@
 from win10toast import ToastNotifier
 import time
 import datetime
+import webbrowser
 
-print('''
-            #####################################
-               ' ALARM / TIMER '  by radser2001
-            #####################################
-''')
+print('   ██╗  ░█████╗░██╗░░░░░░█████╗░██████╗░███╗░░░███╗  ░░░░██╗  ████████╗██╗███╗░░░███╗███████╗██████╗░ ██╗  ')
+print('   ╚█║  ██╔══██╗██║░░░░░██╔══██╗██╔══██╗████╗░████║  ░░░██╔╝  ╚══██╔══╝██║████╗░████║██╔════╝██╔══██╗ ╚█║  ')
+print('   ░╚╝  ███████║██║░░░░░███████║██████╔╝██╔████╔██║  ░░██╔╝░  ░░░██║░░░██║██╔████╔██║█████╗░░██████╔╝ ░╚╝  ')
+print('        ██╔══██║██║░░░░░██╔══██║██╔══██╗██║╚██╔╝██║  ░██╔╝░░  ░░░██║░░░██║██║╚██╔╝██║██╔══╝░░██╔══██╗      ')
+print('        ██║░░██║███████╗██║░░██║██║░░██║██║░╚═╝░██║  ██╔╝░░░  ░░░██║░░░██║██║░╚═╝░██║███████╗██║░░██║      ')
+print('        ╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝  ╚═╝░░░░  ░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚═╝      ')
+
+print('               ██████╗░░█████╗░██████╗░░██████╗███████╗██████╗░██████╗░░█████╗░░█████╗░░░███╗░░')
+print('               ██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝██╔══██╗╚════██╗██╔══██╗██╔══██╗░████║░░')
+print('               ██████╔╝███████║██║░░██║╚█████╗░█████╗░░██████╔╝░░███╔═╝██║░░██║██║░░██║██╔██║░░')
+print('               ██╔══██╗██╔══██║██║░░██║░╚═══██╗██╔══╝░░██╔══██╗██╔══╝░░██║░░██║██║░░██║╚═╝██║░░')
+print('               ██║░░██║██║░░██║██████╔╝██████╔╝███████╗██║░░██║███████╗╚█████╔╝╚█████╔╝███████╗')
+print('               ╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═════╝░╚══════╝╚═╝░░╚═╝╚══════╝░╚════╝░░╚════╝░╚══════╝')
+print('                                            (っ◔◡◔)っ ❤                                      ')
+print("\n")
+
+
+def openlink():
+    webbrowser.open('https://github.com/Radser2001')
+    print('debug - went')
+    
 
 def countdowm(hours, minutes, seconds):
 
@@ -31,17 +48,51 @@ def countdowm(hours, minutes, seconds):
 
     toaster.show_toast("RADSER alarm","\nTIME IS OVER!!!")
 
-    print("Have a nice day!!!\n")
+    print("Have a nice day!!! (っ◔◡◔)っ ❤\n")
+    go_to = input("Enter go to visit my Github :").lower()
+    if go_to == 'go':
+        openlink
+
+
+print('█▀▄▀█ █▀█ █▀▄ █▀▀   ▄█   ▀   ▄▀█ █░░ ▄▀█ █▀█ █▀▄▀█')
+print('█░▀░█ █▄█ █▄▀ ██▄   ░█   ▄   █▀█ █▄▄ █▀█ █▀▄ █░▀░█')
+print("\n")
+
+print('█▀▄▀█ █▀█ █▀▄ █▀▀   ▀█   ▀   ▀█▀ █ █▀▄▀█ █▀▀ █▀█')
+print('█░▀░█ █▄█ █▄▀ ██▄   █▄   ▄   ░█░ █ █░▀░█ ██▄ █▀▄')
+print("\n")
+
+
+print('█▀▄▀█ █▀█ █▀▄ █▀▀   █░█   ▀   █▀█ █▀█ ▀█▀ █ █▀▄▀█ ▄▀█ █░░   █▀ ▀█▀ █░█ █▀▄ █▄█   █▀█ █░░ ▄▀█ █▄░█')
+print('█░▀░█ █▄█ █▄▀ ██▄   ▀▀█   ▄   █▄█ █▀▀ ░█░ █ █░▀░█ █▀█ █▄▄   ▄█ ░█░ █▄█ █▄▀ ░█░   █▀▀ █▄▄ █▀█ █░▀█' + '\n25 min study 5 min break')
+print("\n")
 
 
 
-mode = input("Alarm or timer (alarm/timer)? ").lower()
+select = int(input("Enter 1 or 2 or 4 : "))
 
+if select == 1:
+    mode = 'alarm'
+    
+elif select == 2:
+    mode = 'timer'
+    
+elif select == 4:
+    mode = 'op'
+
+else:
+    mode = 'timer'
+    
 print("\n---Set a time for the", mode + "---")
 
-hours= int(input("\nHours: "))
-minutes= int(input("Minutes:"))
-seconds = int(input("seconds: "))
+if mode == 'timer' or mode == 'alarm':
+    hours= int(input("\nHours: "))
+    minutes= int(input("Minutes:"))
+    seconds = int(input("seconds: "))
+else:
+    hours = int(0)
+    minutes = int(25)
+    seconds = int(0)
 
 current_date_and_time = datetime.datetime.now()
 
@@ -54,6 +105,9 @@ alarm_set_time = current_date_and_time + hours_added + minutes_added + seconds_a
 
 if mode == "alarm":
     print("\n*******", mode.capitalize(), "will go off at -> ", alarm_set_time , "*******")
+    choice = input("\n\nDo you want the countdown (y/n) ? ")
+    
+if mode == "op":
     choice = input("\n\nDo you want the countdown (y/n) ? ")
 
 print("\n")
