@@ -1,7 +1,7 @@
 from win10toast import ToastNotifier
 import time
 import datetime
-import webbrowser
+import click
 
 print('   ██╗  ░█████╗░██╗░░░░░░█████╗░██████╗░███╗░░░███╗  ░░░░██╗  ████████╗██╗███╗░░░███╗███████╗██████╗░ ██╗  ')
 print('   ╚█║  ██╔══██╗██║░░░░░██╔══██╗██╔══██╗████╗░████║  ░░░██╔╝  ╚══██╔══╝██║████╗░████║██╔════╝██╔══██╗ ╚█║  ')
@@ -21,15 +21,14 @@ print("\n")
 
 
 def openlink():
-    webbrowser.open('https://github.com/Radser2001')
-    print('debug - went')
-    
+    click.launch('https://github.com/Radser2001')
+ 
 
 def countdowm(hours, minutes, seconds):
     
     if(mode == 'op'):
         start = "yes"
-        while start == "yes"  or sessions == 0:
+        while start == "yes"  or sessions != 0:
              total_seconds = hours * 3600 + minutes * 60 + seconds
 
              while total_seconds >= 0:
@@ -87,11 +86,10 @@ def countdowm(hours, minutes, seconds):
         toaster = ToastNotifier()
 
         toaster.show_toast("RADSER alarm","\nTIME IS OVER!!!")
-
         print("Have a nice day!!! (っ◔◡◔)っ ❤\n")
         go_to = input("Enter go to visit my Github :").lower()
         if go_to == 'go':
-            openlink
+            openlink()
 
 
 print('█▀▄▀█ █▀█ █▀▄ █▀▀   ▄█   ▀   ▄▀█ █░░ ▄▀█ █▀█ █▀▄▀█')
