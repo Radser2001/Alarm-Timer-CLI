@@ -62,7 +62,7 @@ def countdowm(hours, minutes, seconds):
         print("Have a nice day!!! (っ◔◡◔)っ ❤\n")
         go_to = input("Enter go to visit my Github :").lower()
         if go_to == 'go':
-            openlink
+            openlink()
 
              
 
